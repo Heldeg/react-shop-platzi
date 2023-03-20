@@ -6,13 +6,17 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/'
     },
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
             '@styles': path.resolve(__dirname,'./src/styles/'),
-            '@public': path.resolve(__dirname,'./public/')
+            '@public': path.resolve(__dirname,'./public/'),
+            '@containers': path.resolve(__dirname,'./src/containers/'),
+            '@pages': path.resolve(__dirname,'./src/pages/')
+
         }
     },
     mode: 'development',
@@ -32,7 +36,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.s[ac]ss$/i,
+                test: /\.(css|scss)$/i,
                 use: [
                     'style-loader',
                     'css-loader',
@@ -51,6 +55,7 @@ module.exports = {
         })
     ],
     devServer: {
+        historyApiFallback: true,
         static: path.join(__dirname,'dist'),
         compress: true,
         port: 3007
