@@ -1,3 +1,4 @@
+@import 'vars';
 nav {
     display: flex;
     justify-content: space-between;
@@ -9,7 +10,7 @@ nav {
     display: none;
 }
 
-.logo {
+.nav-logo {
     width: 100px;
 }
 
