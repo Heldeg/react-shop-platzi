@@ -6,15 +6,21 @@
 	box-sizing: border-box;
 	position: absolute;
 	right: 0;
+	background-color: var(--white);
+	top: 60px;
+	bottom: 0;
+	border-radius: 6px;
+	border: 1px solid var(--very-light-pink);
+
 }
-.title-container {
+.MyOrder-title-container {
 	display: flex;
 }
-.title-container img {
+.MyOrder-title-container img {
 	transform: rotate(180deg);
 	margin-right: 14px;
 }
-.title {
+.MyOrder-title {
 	font-size: var(--lg);
 	font-weight: bold;
 }

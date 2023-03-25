@@ -1,15 +1,21 @@
-import React from 'react';
-import '../styles/MyOrder.scss'
+import React, {useContext} from 'react';
+import AppContext from '../context/AppContext';
+import '@styles/MyOrder.scss'
+import OrderItem from '@components/OrderItem'
+import flechita from '@icons/flechita.svg'
 
 const MyOrder = () => {
+    const { state } = useContext(AppContext);
     return (
         <aside className="MyOrder">
-            <div className="title-container">
-                <img src="./icons/flechita.svg" alt="arrow" />
-                <p className="title">My order</p>
+            <div className="MyOrder-title-container">
+                <img src={flechita} alt="arrow" />
+                <p className="MyOrder-title">My order</p>
             </div>
             <div className="my-order-content">
-                <OrderItem />
+                {state.cart.map(item => 
+                    <OrderItem product={item} key={`orderItem-${item.id}`} />
+                )}
                 <div className="order">
                     <p>
                         <span>Total</span>
